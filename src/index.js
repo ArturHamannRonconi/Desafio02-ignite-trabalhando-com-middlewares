@@ -39,7 +39,7 @@ function checksTodoExists(request, response, next) {
   const todoExists = userExists?.todos.find(todo => todo.id === id)
 
   const errors = [
-    { validate: userExists, action: () => response.status(404).json({ error: 'Todo not found' }) },
+    { validate: userExists, action: () => response.status(404).json({ error: 'User not found' }) },
     { validate: uuidIsValid, action: () => response.status(400).json({ error: 'invalid ID' }) },
     { validate: todoExists, action: () => response.status(404).json({ error: 'Todo not found' }) }
   ]
